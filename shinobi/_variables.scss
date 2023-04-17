@@ -26,10 +26,14 @@ $colors: (
 }
 
 @debug map-get($colors, "purple");
+// Gets value of color
 @debug map-has-key($colors, "secondary");
+// Looks if has a key
 @debug map-has-key($colors, "tertiary");
 @debug map-remove($colors, "primary");
+// Removes an item from map
 @debug map-merge($colors, ("pink": #ffc0cb));
+// Write an map that we want to add extra map
 
 // spacing
 $base-padding: 0.75rem;
