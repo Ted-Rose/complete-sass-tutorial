@@ -1,15 +1,23 @@
 @each $key, $val in $colors {
+  // This generates 2027 lines of css!
   .text-#{$key} {
+    // Generate a class for text using select #{$key}
     color: $val;
+    // Sets text color to current color
   }
   .bg-#{$key} {
     background-color: $val;
   }
+  // In result we don't have to write these classes by ourselves
 
   // light variations
   @for $i from 1 through 9 {
+    // Darkest to lightest will have 9 variations
     .text-#{$key}-light-#{$i} {
+      // example: text-purple-light-2
       color: mix(white, $val, $i * 10);
+      // Mixing with white increases lightness from
+      // 10% to 90%
     }
     .bg-#{$key}-light-#{$i} {
       background-color: mix(white, $val, $i * 10);
@@ -20,6 +28,7 @@
   @for $i from 1 through 9 {
     .text-#{$key}-dark-#{$i} {
       color: mix(black, $val, $i * 10);
+      // Mixing with black decreases lightness
     }
     .bg-#{$key}-dark-#{$i} {
       background-color: mix(black, $val, $i * 10);
