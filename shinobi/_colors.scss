@@ -6,6 +6,20 @@
     &:hover {
       color: $val;
     }
+    // &:last-child {
+
+    // }
+    // &:nth-child(2) {
+
+    // }
+  // Uses parent selector and you can add more
+  // conditions if needed
+
+  // .text-hover-#{$key}:hover {
+  //     color: $val;
+  //   }
+  // Another way you could do it, but then
+  // you can't nest in multiple conditions
   }
   .bg-#{$key} {
     background-color: $val;
