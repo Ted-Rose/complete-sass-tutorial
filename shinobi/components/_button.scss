@@ -1,4 +1,6 @@
 @mixin btn($bg-color: #e2e2e2) {
+  // value after ":" is default value if no
+  // value is passed in
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
@@ -10,13 +12,40 @@
 
 .btn {
   @include btn;
+  // runs mixin using default value
 }
 
 @each $key, $val in $colors {
+  // .btn-#{$key} {
+  //   text-decoration: none;
+  //   cursor: pointer;
+  //   display: inline-block;
+  //   border: 0;
+  //   padding: $base-padding $base-padding * 2;
+  //   border-radius: $base-border-radius;
+  //   background-color: $val;
+  // }
+  // .btn-outlined-#{$key} {
+      //   text-decoration: none;
+  //   cursor: pointer;
+  //   display: inline-block;
+  //   border: 0;
+  //   padding: $base-padding $base-padding * 2;
+  //   border-radius: $base-border-radius;
+  //   background-color: #fff;
+      // border: $base-border-thickness solid $val;
+  // }
+  // Style for btn and btn-outlined are almost the same.
+  // btn-outlined just have some extra mixing.
+  // So instead we use @mixin
+
   .btn-#{$key} {
     @include btn($val);
+    // $val - passed in value to mixin
     &:hover {
       background-color: lighten($val, 5);
+      // lighten is built in SASS feature where
+      // $val is lightened by 50%
     }
   }
   .btn-outlined-#{$key} {
