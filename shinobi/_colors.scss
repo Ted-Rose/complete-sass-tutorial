@@ -7,6 +7,7 @@
   }
 
   @if ($val != black and $val != white) {
+    // Skips loop if val is black or white
     // light variations
     @for $i from 1 through 9 {
       .text-#{$key}-light-#{$i} {
@@ -25,6 +26,9 @@
       .bg-#{$key}-dark-#{$i} {
         background-color: mix(black, $val, $i * 10);
       }
-    }
+    } // else {
+      // .test-if-2 {
+      //   color: white;
+      // }
   }
 }
