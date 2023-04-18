@@ -1,5 +1,7 @@
 @function light-comp($color) {
+  // comp stands for complementary color
   $complement: complement($color);
+  // uses built in function in sass complement
   $light-complement: lighten($complement, 30%);
   @return $light-complement;
 }

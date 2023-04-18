@@ -29,6 +29,9 @@
   .btn-complement-#{$key} {
     @include btn($val);
     color: light-comp($val);
+    // call function light-comp. $val is available, because
+    // button component inside index.scss is inserted after
+    // variables
     &:hover {
       color: $val;
       background-color: light-comp($val);
