@@ -1,4 +1,4 @@
-// variables & functions
+ // variables & functions
 @import 'functions';
 @import 'variables';
 
@@ -6,6 +6,7 @@
 @import 'base';
 @import 'breakpoints';
 @import 'grid';
+// Have to import grid so that _grid.scss would be working
 
 // colors
 @import "colors";
