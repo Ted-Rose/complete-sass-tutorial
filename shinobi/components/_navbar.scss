@@ -5,22 +5,35 @@
   justify-content: space-between;
   box-sizing: border-box;
 }
+// Instead of adding flex properties in other classes multiple times
+// writing the same code we create another rule flex-layout
+// which is a class selector and is not used anywhere in our HTML,
+// but is used for @extend in other classes.
+// But if .flex-layout is defined with "." then it still will be
+// displayed in the compiled CSS. If we don't want to see it there
+// then we define it using "%" instead of "."
 
 .navbar {
+  // Selector which is a class of navbar
   @extend %flex-layout;
+  // Has to have "%" if that is the way how the class is defined
   padding: $base-padding $base-padding * 2;
   box-shadow: $base-box-shadow;
   .site-title {
+    // Class selector site-title
     font-size: $font-size-lg;
   }
   .container {
     @extend %flex-layout;
   }
+  // Affect only containers inside navbar text and extending
+  // the flex-layout class
 }
 
 @each $key, $val in $colors {
   .navbar-#{$key} {
     @extend .navbar;
+    // Extending .navbar to just add background-color to it
     background-color: $val;
   }
 }
