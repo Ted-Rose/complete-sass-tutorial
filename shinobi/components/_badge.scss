@@ -1,6 +1,7 @@
 @use 'sass:math';
 
 @mixin badge($bg-color: $info) {
+  // By default $bg-color color is $info
   border-radius: $base-border-radius * 4;
   background-color: $bg-color;
   padding: math.div($base-padding, 4) math.div($base-padding, 2);
@@ -10,10 +11,13 @@
 
 .badge {
   @include badge;
+  // If we don't pass in any color then the color will be the
+  // default - $info
 }
 
 @each $key, $val in $colors {
   .badge-#{$key}{
     @include badge($val);
+    // Passes in the value of color we are currently cycling trough
   }
 }
