@@ -1,5 +1,7 @@
 // theme colors
 $primary: #326dee !default;
+// !default disables current value assignment if this class
+// has been defined before
 $secondary: #1ac886 !default;
 $error: #d32752 !default;
 $info: #f6c31c !default;

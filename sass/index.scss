@@ -3,4 +3,28 @@ $secondary: indigo;
 $base-padding: 1rem;
 $base-border-thickness: 3px;
 
+.test {
+    margin: 10px;
+}
+// Will be compiled only if this class is used in HTML
+
+$primary: red;
+// If we move class redefining before "@import 'shinobi';" then
+// it still won't work, because when we start to compile
+// the primary color is set to red, but when we start to
+// compile 'shinobi' library then the _variables.scss file
+// overwrites 'primary' value to the one that is defined
+// in there. To avoid that add '!default' at the end of the
+// class in _variables.scss file
+
 @import 'shinobi';
+// Automatically looks for index.css file withing 'shinobi' folder
+
+$primary: red;
+// Won't update primary class, because in shinobi folder
+// _navbar.scss file we already generetad all navbar clases
+// in "@each $key, $val in $colors {" loop
+// and when we get to redefining primary class we
+// already have defined primary classes.
+// So redefining of classes has to be done before importing
+// library
